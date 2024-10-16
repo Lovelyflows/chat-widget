@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Example Page</title>
+    <style>
+      body {
+        background-color: #f3f3f3;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+          window.voiceflow.chat.load({
+            verify: { projectID: '66f2a4975b495ead28f4017e' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production',
+            render: {
+            mode: 'overlay',
+        },
+      }).then(() => {
+        window.voiceflow.chat.proactive.clear();
+    
+        setTimeout(() => {
+          window.voiceflow.chat.proactive.push({ 
+            type: 'text', 
+            payload: { message: 'Any questions?' }
+          });
+        }, 20000);
+    
+        setTimeout(() => {
+          window.voiceflow.chat.proactive.push({ 
+            type: 'text', 
+            payload: { message: 'Try me!' }
+          });
+        }, 22000);
+      });
+      }
+       v.src = "https://lovelyflows.github.io/react-chat/packages/react-chat/bundlechat.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
+  </body>
+</html>
